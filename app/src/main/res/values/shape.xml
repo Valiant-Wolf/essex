@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="ShapeAppearance.Essex.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/essex_small_component_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.Essex.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/essex_medium_component_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.Essex.MediumComponent.RoundedBottom" parent="ShapeAppearance.Essex.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Essex.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/essex_large_component_corner_radius</item>
+    </style>
+
+    <dimen name="essex_small_component_corner_radius">8dp</dimen>
+    <dimen name="essex_medium_component_corner_radius">12dp</dimen>
+    <dimen name="essex_large_component_corner_radius">16dp</dimen>
+
+</resources>
