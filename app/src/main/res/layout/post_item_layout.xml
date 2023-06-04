@@ -38,7 +38,7 @@
                 android:drawablePadding="2dp"
                 android:ems="4"
                 android:gravity="center_vertical"
-                app:drawableStartCompat="@drawable/ic_swap_vert_24"
+                app:drawableStartCompat="@drawable/ic_vote_both"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/favourite_text_view"
@@ -55,7 +55,7 @@
                 android:drawablePadding="2dp"
                 android:ems="4"
                 android:gravity="center_vertical"
-                app:drawableStartCompat="@drawable/ic_favorite_24"
+                app:drawableStartCompat="@drawable/ic_favorite"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintBaseline_toBaselineOf="@+id/score_text_view"
                 app:layout_constraintEnd_toStartOf="@+id/comments_text_view"
@@ -88,7 +88,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/pool_image_view"
                 app:layout_constraintTop_toTopOf="@+id/score_text_view"
-                app:srcCompat="@drawable/ic_check_box_24"
+                app:srcCompat="@drawable/ic_safe"
                 app:tint="?attr/colorControlNormal" />
 
             <ImageView
@@ -101,7 +101,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/parent_image_view"
                 app:layout_constraintTop_toTopOf="@+id/rating_image_view"
-                app:srcCompat="@drawable/ic_data_array_24"
+                app:srcCompat="@drawable/ic_pool"
                 app:tint="?attr/colorControlNormal" />
 
             <ImageView
@@ -114,7 +114,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/pending_image_view"
                 app:layout_constraintTop_toTopOf="@+id/rating_image_view"
-                app:srcCompat="@drawable/ic_collections_24"
+                app:srcCompat="@drawable/ic_related"
                 app:tint="?attr/colorControlNormal" />
 
             <ImageView
@@ -128,7 +128,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/comments_text_view"
                 app:layout_constraintTop_toTopOf="@+id/rating_image_view"
-                app:srcCompat="@drawable/ic_gpp_maybe_24"
+                app:srcCompat="@drawable/ic_pending_approval"
                 app:tint="?attr/colorControlNormal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
