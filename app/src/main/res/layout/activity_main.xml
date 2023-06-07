@@ -38,7 +38,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:name="net.valiantwolf.essex.HomeFragment"
+            android:name="net.valiantwolf.essex.ui.home.HomeFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_home" />

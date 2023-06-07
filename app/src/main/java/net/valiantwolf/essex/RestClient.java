@@ -82,6 +82,6 @@ public class RestClient {
   }
 
   public CompletableFuture<List<Post>> getPostsAsync() {
-    return getAsync(ROOT + "/posts.json", postAdapter).thenApply(PostResults::getPosts);
+    return getAsync(ROOT + "/posts.json?limit=35&tags=rating:s", postAdapter).thenApply(PostResults::getPosts);
   }
 }

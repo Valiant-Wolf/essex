@@ -1,6 +1,9 @@
 package net.valiantwolf.essex.entity;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil.ItemCallback;
 import com.squareup.moshi.Json;
+import java.util.Objects;
 
 public class Post {
 
@@ -9,6 +12,8 @@ public class Post {
   File preview;
   File sample;
   Score score;
+  int favCount;
+  int commentCount;
   Flags flags;
   Rating rating;
 
@@ -28,16 +33,24 @@ public class Post {
     return sample;
   }
 
-  public Score getScore() {
-    return score;
+  public int getScore() {
+    return score.total;
   }
 
-  public Flags getFlags() {
-    return flags;
+  public int getFavCount() {
+    return favCount;
+  }
+
+  public int getCommentCount() {
+    return commentCount;
   }
 
   public Rating getRating() {
     return rating;
+  }
+
+  public boolean isPending() {
+    return flags.pending;
   }
 
   public static class File {
@@ -86,14 +99,14 @@ public class Post {
     }
   }
 
-  public static class Score {
+  private static class Score {
 
     int up;
     int down;
     int total;
   }
 
-  public static class Flags {
+  private static class Flags {
 
     boolean pending;
   }
@@ -107,5 +120,21 @@ public class Post {
 
     @Json(name = "e")
     E
+  }
+
+  public static class DiffCallback extends ItemCallback<Post> {
+
+    @Override
+    public boolean areItemsTheSame(@NonNull Post left, @NonNull Post right) {
+      return left.id == right.id;
+    }
+
+    @Override
+    public boolean areContentsTheSame(@NonNull Post left, @NonNull Post right) {
+      return left.score.total == right.score.total
+          && left.favCount == right.favCount
+          && left.commentCount == right.commentCount
+          && left.flags.pending == right.flags.pending;
+    }
   }
 }

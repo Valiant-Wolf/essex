@@ -3,13 +3,18 @@ package net.valiantwolf.essex.databinding;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
-public class GlideBindings {
+public abstract class GlideBindings {
 
-  @BindingAdapter("app:glideUrl")
+  @BindingAdapter({"glideUrl"})
   public static void setGlideUrl(ImageView view, String url) {
     Context context = view.getContext();
 

@@ -3,16 +3,10 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
-  <data>
-    <variable
-      name="post"
-      type="net.valiantwolf.essex.entity.Post"/>
-  </data>
-
   <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp">
+    android:layout_margin="4dp">
 
     <com.google.android.material.card.MaterialCardView
       android:id="@+id/card_view"
@@ -36,8 +30,9 @@
           app:layout_constraintHorizontal_bias="0.5"
           app:layout_constraintStart_toEndOf="@+id/pool_image_view"
           app:layout_constraintTop_toTopOf="@+id/score_text_view"
-          app:srcCompat="@drawable/ic_safe"
-          app:tint="?attr/colorControlNormal" />
+          app:postRating="@{post.rating}"
+          app:tint="@color/teal_200"
+          tools:srcCompat="@drawable/ic_explicit" />
 
         <ImageView
           android:id="@+id/pool_image_view"
@@ -70,6 +65,7 @@
           android:layout_width="24dp"
           android:layout_height="24dp"
           android:layout_weight="1"
+          app:goneIf="@{!post.pending}"
           app:layout_constraintBottom_toBottomOf="@+id/rating_image_view"
           app:layout_constraintEnd_toStartOf="@+id/parent_image_view"
           app:layout_constraintHorizontal_bias="1.0"
@@ -77,19 +73,22 @@
           app:layout_constraintStart_toEndOf="@+id/comments_text_view"
           app:layout_constraintTop_toTopOf="@+id/rating_image_view"
           app:srcCompat="@drawable/ic_pending_approval"
-          app:tint="?attr/colorControlNormal" />
+          app:tint="@color/sky" />
 
         <com.google.android.material.imageview.ShapeableImageView
           android:id="@+id/preview_image_view"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
           android:adjustViewBounds="true"
+          app:glideUrl="@{post.sample.url}"
+          app:aspectWidth="@{post.sample.width}"
+          app:aspectHeight="@{post.sample.height}"
+          app:layout_constraintDimensionRatio="h,4:3"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:shapeAppearanceOverlay="@style/ShapeAppearance.Essex.MediumComponent.RoundedBottom"
-          tools:srcCompat="@tools:sample/backgrounds/scenic"
-          app:glideUrl="@{post.preview.url}"/>
+          tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/favourite_text_view"
@@ -104,6 +103,7 @@
           app:layout_constraintEnd_toStartOf="@+id/comments_text_view"
           app:layout_constraintHorizontal_bias="0.5"
           app:layout_constraintStart_toEndOf="@+id/score_text_view"
+          app:shortNumericText="@{post.favCount}"
           tools:text="1230" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -118,6 +118,7 @@
           app:layout_constraintBaseline_toBaselineOf="@+id/favourite_text_view"
           app:layout_constraintEnd_toStartOf="@+id/rating_image_view"
           app:layout_constraintStart_toEndOf="@+id/favourite_text_view"
+          app:shortNumericText="@{post.commentCount}"
           tools:text="42" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -130,7 +131,6 @@
           android:drawablePadding="2dp"
           android:ems="4"
           android:gravity="center_vertical"
-          app:drawableStartCompat="@drawable/ic_vote_both"
           app:drawableTint="?attr/colorControlNormal"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toStartOf="@+id/favourite_text_view"
@@ -138,9 +138,19 @@
           app:layout_constraintHorizontal_chainStyle="packed"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/preview_image_view"
+          app:postScore="@{post.score}"
+          app:shortNumericText="@{post.score}"
+          tools:drawableStartCompat="@drawable/ic_vote_both"
           tools:text="88.8k" />
 
       </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
   </FrameLayout>
+
+  <data>
+    <import type="android.view.View" />
+    <variable
+      name="post"
+      type="net.valiantwolf.essex.entity.Post" />
+  </data>
 </layout>
